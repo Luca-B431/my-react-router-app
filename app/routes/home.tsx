@@ -1,13 +1,18 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import Banner from "../components/banner";
+import Gallery from "~/components/gallery";
 
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+export function loader() {
+  return { name: "Kasa Home" };
 }
 
-export default function Home() {
-  return <Welcome />;
+export default function Home({ loaderData }: Route.ComponentProps) {
+  return (
+    <div className="flex-col justify-center items-center h-100% bg-white">
+      <Banner />
+      <div>
+        <Gallery />
+      </div>
+    </div>
+  );
 }
