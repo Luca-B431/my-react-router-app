@@ -8,8 +8,11 @@ export function loader() {
 
 export default function Home({ loaderData }: Route.ComponentProps) {
   return (
-    <div className="flex-col justify-center items-center h-100% bg-white">
-      <Banner />
+    <div className="flex-col justify-center items-center h-full bg-white">
+      <Banner
+        url={"./app/assets/home_banner.png"}
+        text={"Chez vous, partout et ailleurs"}
+      />
       <div>
         <Gallery />
       </div>
