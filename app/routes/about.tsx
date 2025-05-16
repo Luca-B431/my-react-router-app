@@ -1,4 +1,3 @@
-import type { Route } from "./+types/about";
 import Banner from "../components/banner";
 import AboutDropdown from "../components/about-dropdown";
 

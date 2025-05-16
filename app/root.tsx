@@ -1,8 +1,15 @@
-import { isRouteErrorResponse, Links, Meta, Outlet } from "react-router";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import {
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,21 +21,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {/* Header */}
-        <Header />
-
-        {/* Children */}
         {children}
-
-        {/* Footer */}
-        <Footer />
+        <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
